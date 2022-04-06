@@ -120,19 +120,13 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
             adminAddress("localhost:10046")
         }
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
-        dataSourceProperties {
-            dataSource {
-                password="node_a"
-                url="jdbc:postgresql://localhost:5439/corda"
-                user="partya"
-            }
-            dataSourceClassName="org.postgresql.ds.PGSimpleDataSource"
-        }
-        database {
-            transactionIsolationLevel=READ_COMMITTED
-            schema="noda_a"
-            runMigration=true
-        }
+        extraConfig = [
+                "dataSourceProperties.dataSourceClassName": "org.postgresql.ds.PGSimpleDataSource",
+                "dataSourceProperties.dataSource.url"     : "jdbc:postgresql://localhost:5439/corda",
+                "dataSourceProperties.dataSource.user"    : 'partya',
+                "dataSourceProperties.dataSource.password": 'node_a',
+                "jarDirs"                                 : ['${ rootProject.projectDir }/drivers']
+        ]
     }
     node {
         name "O=PartyB,L=Makati,C=PH"
@@ -142,18 +136,12 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
             adminAddress("localhost:10049")
         }
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
-        dataSourceProperties {
-            dataSource {
-                password="node_b"
-                url="jdbc:postgresql://localhost:5439/corda"
-                user="partyb"
-            }
-            dataSourceClassName="org.postgresql.ds.PGSimpleDataSource"
-        }
-        database {
-            transactionIsolationLevel=READ_COMMITTED
-            schema="noda_b"
-            runMigration=true
-        }
+        extraConfig = [
+                "dataSourceProperties.dataSourceClassName": "org.postgresql.ds.PGSimpleDataSource",
+                "dataSourceProperties.dataSource.url"     : "jdbc:postgresql://localhost:5439/corda",
+                "dataSourceProperties.dataSource.user"    : 'partyb',
+                "dataSourceProperties.dataSource.password": 'node_b',
+                "jarDirs"                                 : ['${ rootProject.projectDir }/drivers']
+        ]
     }
 }
