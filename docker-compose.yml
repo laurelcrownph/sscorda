@@ -11,7 +11,6 @@ services:
     volumes:
       - ./build/nodes/Notary/node.conf:/etc/corda/node.conf
       - ./build/nodes/Notary/certificates:/opt/corda/certificates
-      - ./build/nodes/Notary/persistence:/opt/corda/persistence
       - ./build/nodes/Notary/logs:/opt/corda/logs
       - ./build/nodes/Notary/cordapps:/opt/corda/cordapps
       - ./build/nodes/Notary/additional-node-infos:/opt/corda/additional-node-infos
@@ -28,7 +27,6 @@ services:
     volumes:
       - ./build/nodes/PartyA/node.conf:/etc/corda/node.conf
       - ./build/nodes/PartyA/certificates:/opt/corda/certificates
-      - ./build/nodes/PartyA/persistence:/opt/corda/persistence
       - ./build/nodes/PartyA/logs:/opt/corda/logs
       - ./build/nodes/PartyA/cordapps:/opt/corda/cordapps
       - ./build/nodes/PartyA/additional-node-infos:/opt/corda/additional-node-infos
@@ -45,7 +43,6 @@ services:
     volumes:
       - ./build/nodes/PartyB/node.conf:/etc/corda/node.conf
       - ./build/nodes/PartyB/certificates:/opt/corda/certificates
-      - ./build/nodes/PartyB/persistence:/opt/corda/persistence
       - ./build/nodes/PartyB/logs:/opt/corda/logs
       - ./build/nodes/PartyB/cordapps:/opt/corda/cordapps
       - ./build/nodes/PartyB/additional-node-infos:/opt/corda/additional-node-infos

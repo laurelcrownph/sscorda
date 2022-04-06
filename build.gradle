@@ -107,10 +107,10 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node {
         name "O=Notary,L=Pampanga,C=PH"
         notary = [validating : false]
-        p2pPort 10002
+        p2pPort 10200
         rpcSettings {
-            address("0.0.0.0:10003")
-            adminAddress("0.0.0.0:10043")
+            address("0.0.0.0:10201")
+            adminAddress("0.0.0.0:10202")
         }
         extraConfig = [
                 "dataSourceProperties.dataSourceClassName": "org.postgresql.ds.PGSimpleDataSource",
@@ -122,10 +122,10 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
     node {
         name "O=PartyA,L=Pasig,C=PH"
-        p2pPort 10005
+        p2pPort 10200
         rpcSettings {
-            address("0.0.0.0:10006")
-            adminAddress("0.0.0.0:10046")
+            address("0.0.0.0:10201")
+            adminAddress("0.0.0.0:10202")
         }
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
         extraConfig = [
@@ -138,10 +138,10 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
     node {
         name "O=PartyB,L=Makati,C=PH"
-        p2pPort 10008
+        p2pPort 10200
         rpcSettings {
-            address("0.0.0.0:10009")
-            adminAddress("0.0.0.0:10049")
+            address("0.0.0.0:10201")
+            adminAddress("0.0.0.0:10202")
         }
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
         extraConfig = [
