@@ -84,7 +84,7 @@ public class ExampleFlow {
 
             // Obtain a reference to a notary we wish to use.
             /** Explicit selection of notary by CordaX500Name - argument can by coded in flows or parsed from config (Preferred)*/
-            final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB"));
+            final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=Pampanga,C=PH"));
 
             // Stage 1.
             progressTracker.setCurrentStep(GENERATING_TRANSACTION);
