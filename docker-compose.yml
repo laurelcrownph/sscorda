@@ -3,6 +3,8 @@ services:
   notary:
     image: corda/corda-zulu-java1.8-4.8.6
     container_name: notary
+    network:
+      - corda
     ports:
       - "10003:10201"
       - "2000:2222"
@@ -18,6 +20,8 @@ services:
   partya:
     image: corda/corda-zulu-java1.8-4.8.6
     container_name: partya
+    network:
+      - corda
     ports:
       - "10006:10201"
       - "2001:2222"
@@ -33,6 +37,8 @@ services:
   partyb:
     image: corda/corda-zulu-java1.8-4.8.6
     container_name: partyb
+    network:
+      - corda
     ports:
       - "10009:10201"
       - "2002:2222"
@@ -45,7 +51,5 @@ services:
       - ./build/nodes/PartyB/additional-node-infos:/opt/corda/additional-node-infos
       - ./build/nodes/PartyB/network-parameters:/opt/corda/network-parameters
       - ./build/nodes/PartyB/drivers:/opt/corda/drivers
-volumes:
-  cordapostgres002:
 networks:
   corda:
