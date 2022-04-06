@@ -45,17 +45,6 @@ services:
       - ./build/nodes/PartyB/additional-node-infos:/opt/corda/additional-node-infos
       - ./build/nodes/PartyB/network-parameters:/opt/corda/network-parameters
       - ./build/nodes/PartyB/drivers:/opt/corda/drivers
-  corda-postgres:
-    container_name: corda-postgres
-    image: postgres:14.2-alpine
-    restart: always
-    environment:
-      - POSTGRES_USER=corda
-      - POSTGRES_PASSWORD=corda
-    ports:
-      - 5439:5432
-    volumes:
-      - cordapostgres001:/var/lib/postgresql/data
 volumes:
   cordapostgres002:
 networks:

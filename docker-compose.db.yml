@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  corda-postgres:
+    container_name: corda-postgres
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=corda
+      - POSTGRES_PASSWORD=corda
+    ports:
+      - 5439:5432
+    volumes:
+      - cordapostgres001:/var/lib/postgresql/data
+volumes:
+  cordapostgres001:
